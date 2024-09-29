@@ -2,31 +2,13 @@ let tasks = [];
 const addTask = () => {
   const taskInput = document.getElementById("task");
   const task = taskInput.value.trim();
+  taskInput.value = "";
   if (task) {
     tasks.push({ text: task, completed: false });
-    console.log(tasks);
     updateTaskList();
   }
 };
-/* const updateTaskList = () => {
-  const tasList = document.getElementById("task-list");
-  //   tasList.innerHTML = " ";
-  tasks.forEach((task, index) => {
-    const listItem = document.createElement("li");
-    listItem.innerHTML = ` <div class="taskItem">
-<div class="task ${task.completed ? "completed" : ""}>
-<input type="checkbox" class="checkbox"${task.completed ? "checked" : ""}>
-<p>${task.text}</p>
-</div>
-<div class="emojis">
-<p onclick="editTask(${index})">📝</p>
-<p onclick="editTask(${index})">🗑️</p>
-</div>
-</div>`;
-    listItem.addEventListener("change", () => toggleTaskComplete(index));
-    tasList.append(listItem);
-  });
-}; */
+
 const updateTaskList = () => {
   const tasList = document.getElementById("task-list");
   tasList.innerHTML = "";
@@ -38,11 +20,11 @@ const updateTaskList = () => {
             <input type="checkbox" class="checkbox" ${
               tas.completed ? "checked" : ""
             }>
-            <p>${tas.text}</p>
+            <p class="delete" >${tas.text}</p>
           </div>
           <div class="emojis">
             <p onclick="editTask(${index})">📝</p>
-            <p onclick="deleteTask(${index})">🗑️</p> <!-- Use deleteTask function here -->
+            <p  onclick="deleteTask(${index})">🗑️</p> <!-- Use deleteTask function here -->
           </div>
         </div>`;
 
@@ -56,3 +38,13 @@ document.getElementById("newTask").addEventListener("click", function (e) {
   e.preventDefault();
   addTask();
 });
+const deleteTask = (index) => {
+  tasks.splice(index, 1);
+  updateTaskList();
+};
+const editTask = (index) => {
+  const taskInput = document.getElementById("task");
+  taskInput.value = tasks[index].text;
+  tasks.splice(index, 1);
+  updateTaskList();
+};

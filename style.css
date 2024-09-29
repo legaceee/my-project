@@ -45,21 +45,56 @@ button {
   font-size: 30px;
   font-weight: bold;
 }
-.taskItem {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  align-items: center;
-}
+
 #task-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 30px;
-  list-style: none;
+
 }
-.emojis {
+/* .taskItem {
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Space between the task and emojis */
+  align-items: center; /* Align items vertically centered */
+  margin: 10px 0; /* Add vertical spacing between task items */
+}
+
+.task {
+  display: flex; /* Align checkbox and text in a row */
+  align-items: center; /* Center items vertically */
+}
+
+.checkbox {
+  margin-right: 10px; /* Space between checkbox and text */
+}
+
+.emojis p {
+  margin-left: 10px; /* Space between emojis */
+  cursor: pointer; /* Change cursor on hover for interactivity */
+}
+ */
+ .taskItem {
+  display: flex; /* Align task and emoji sections in a row */
+  justify-content: space-between; /* Space between task and emoji sections */
+  align-items: center; /* Center items vertically */
+  margin: 10px 0; /* Vertical spacing between task items */
+}
+
+.task {
+  display: flex; /* Align checkbox and text in a row */
+  align-items: center; /* Center items vertically */
+}
+
+.checkbox {
+  margin-right: 10px; /* Space between checkbox and text */
+}
+
+.emojis p {
+  margin-left: 10px; /* Space between emojis */
+  cursor: pointer; /* Change cursor on hover for interactivity */
+}
+.emojis{
   display: flex;
-  flex-direction: row;
+  align-items: center;
 }
